@@ -41,7 +41,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', validate([
-    body('category').isLength({min: 5}).withMessage("A categoria deve ter pelo menos 5 caracteres")
+    body('brand').isLength({min: 5}).withMessage("A categoria deve ter pelo menos 5 caracteres")
 ]) ,(req, res) => {
     const {category, brand } = req.body;
     const sql = 'INSERT INTO appliances (category, brand ) VALUES (?, ?)';
