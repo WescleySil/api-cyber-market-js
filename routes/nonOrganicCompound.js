@@ -46,7 +46,7 @@ router.get('/:id', (req, res) => {
 router.post('/', validate([
     body('name').isLength({min: 3}).withMessage("O nome deve ter pelo menos 3 caracteres"),
     body('barcode').isLength({min:10}).withMessage("O codigo de barras deve ter pelo menos 10 caracteres"),
-    body('expiration_date').isDate({format: "string"}).withMessage("A data de validade deve ser no formato dd/mm/yyyy")
+    body('expiration_date').isDate({format: "DD/MM/YYYY"}).withMessage("A data de validade deve ser no formato dd/mm/yyyy")
 ]) ,(req, res) => {
     const { name, barcode, expiration_date } = req.body;
     const sql = 'INSERT INTO non_organic_compounds (name, barcode, expiration_date) VALUES (?, ?, ?)';
